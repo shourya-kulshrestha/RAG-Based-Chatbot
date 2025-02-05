@@ -1,0 +1,5 @@
+dev.env
+faiss_index
+chroma_db/
+logs/
+**/__pycache__/
