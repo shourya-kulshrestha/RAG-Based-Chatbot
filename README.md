@@ -18,6 +18,7 @@ Install the dependencies : ```pip install -r requirements.txt``` <br>
 Process the data and store the embeddings : ```python app/scripts/preproces_data.py``` <br>
 Start the FastAPI server : ```python -m uvicorn app.api.main:app --reload --host 0.0.0.0 --port 8000``` <br>
 Start the Streamlit App : ```streamlit run app/frontend/streamlit_app.py``` <br>
+Append the path to the chatbot directory in your machine incase you face no module found error : ```sys.path.append("<Path_to_the_chatbot_dir>")```
 
 
 ## Components and Working of the Chatbot 
