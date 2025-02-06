@@ -1,12 +1,7 @@
-import os
-import sys
-
-sys.path.append('/Users/shouryakulshrestha/portfolio/AB_InBev_assignment/chatbot')
-
 import asyncio
-import uvicorn
 import logging
 
+import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -22,17 +17,19 @@ app = FastAPI()
 retriever = Retriever()
 rag_pipeline = RAGPipeline()
 
+
 class Query(BaseModel):
     question: str
 
 
-@app.get('/')
-@app.get('/home')
+@app.get("/")
+@app.get("/home")
 def read_home():
     """
-     Home endpoint which can be used to test the availability of the application.
-     """
-    return {'message': 'System is healthy'}
+    Home endpoint which can be used to test the availability of the application.
+    """
+    return {"message": "System is healthy"}
+
 
 @app.post("/ask")
 async def ask(query: Query):

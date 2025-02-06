@@ -8,7 +8,8 @@ from transformers import pipeline
 
 from app.config.base_config import HUGGINGFACE_LLM, LOG_DIR, LOG_FILE
 
-load_dotenv('dev.env')
+load_dotenv("dev.env")
+
 
 def set_logger(console: bool = True):
     """
@@ -21,7 +22,7 @@ def set_logger(console: bool = True):
 
     if not os.path.exists(LOG_DIR):
         os.makedirs(LOG_DIR)
-    
+
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
     formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(filename)s - %(message)s")
@@ -34,7 +35,7 @@ def set_logger(console: bool = True):
         console_handler = logging.StreamHandler(sys.stdout)
         console_handler.setFormatter(formatter)
         logger.addHandler(console_handler)
-    
+
     logger.info("Logger Configured Successfully")
 
 
@@ -42,12 +43,13 @@ def load_gemini():
     """
     Loads the Gemini Model
     """
-    gemini_api_key = os.getenv('GEMINI_API_KEY')
-    gemini_model_name = os.getenv('GEMINI_MODEL_NAME')
-    genai.configure(api_key = gemini_api_key)
+    gemini_api_key = os.getenv("GEMINI_API_KEY")
+    gemini_model_name = os.getenv("GEMINI_MODEL_NAME")
+    genai.configure(api_key=gemini_api_key)
     model = genai.GenerativeModel(gemini_model_name)
 
     return model
+
 
 def load_huggingfacellm():
     """
@@ -55,7 +57,3 @@ def load_huggingfacellm():
     """
     model = pipeline("text-generation", model=HUGGINGFACE_LLM)
     return model
-
-
-
-
