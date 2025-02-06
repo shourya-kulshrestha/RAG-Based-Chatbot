@@ -1,3 +1,6 @@
+# import sys
+# sys.path.append("<Path_to_chatbot_dir>")
+
 import logging
 import os
 import sys

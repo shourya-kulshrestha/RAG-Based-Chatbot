@@ -1,3 +1,6 @@
+# import sys
+# sys.path.append("<Path_to_chatbot_dir>")
+
 import logging
 
 from app.config.base_config import DATA_DIR
